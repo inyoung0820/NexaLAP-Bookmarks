@@ -19,6 +19,7 @@
   "activationEvents": [
     "onView:nexalapBookmarks.bookmarksView",
     "onCommand:nexalapBookmarks.addBookmark",
+    "onCommand:nexalapBookmarks.editBookmark",
     "onCommand:nexalapBookmarks.removeBookmark",
     "onCommand:nexalapBookmarks.openBookmark",
     "onCommand:nexalapBookmarks.clearBookmarks"
@@ -28,6 +29,10 @@
       {
         "command": "nexalapBookmarks.addBookmark",
         "title": "NexaLAP: Add Bookmark"
+      },
+      {
+        "command": "nexalapBookmarks.editBookmark",
+        "title": "NexaLAP: Edit Bookmark"
       },
       {
         "command": "nexalapBookmarks.removeBookmark",
@@ -56,6 +61,45 @@
         {
           "id": "nexalapBookmarks.bookmarksView",
           "name": "Bookmarks"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "nexalapBookmarks.addBookmark",
+          "when": "view == nexalapBookmarks.bookmarksView",
+          "group": "navigation@10",
+          "icon": "$(add)"
+        },
+        {
+          "command": "nexalapBookmarks.editBookmark",
+          "when": "view == nexalapBookmarks.bookmarksView",
+          "group": "navigation@20",
+          "icon": "$(edit)"
+        },
+        {
+          "command": "nexalapBookmarks.removeBookmark",
+          "when": "view == nexalapBookmarks.bookmarksView",
+          "group": "navigation@30",
+          "icon": "$(trash)"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "nexalapBookmarks.openBookmark",
+          "when": "view == nexalapBookmarks.bookmarksView && viewItem == nexalapBookmarkItem",
+          "group": "inline@10"
+        },
+        {
+          "command": "nexalapBookmarks.editBookmark",
+          "when": "view == nexalapBookmarks.bookmarksView && viewItem == nexalapBookmarkItem",
+          "group": "inline@20"
+        },
+        {
+          "command": "nexalapBookmarks.removeBookmark",
+          "when": "view == nexalapBookmarks.bookmarksView && viewItem == nexalapBookmarkItem",
+          "group": "inline@30"
         }
       ]
     }
