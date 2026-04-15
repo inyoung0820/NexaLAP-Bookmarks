@@ -1,0 +1,78 @@
+{
+  "name": "nexalap-bookmarks",
+  "displayName": "NexaLAP Bookmarks",
+  "description": "Bookmark feature for NexaLAP Studio (Theia) and VS Code.",
+  "version": "0.0.1",
+  "publisher": "nexalap",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nexalap/NexaLAP-Bookmarks.git"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/nexa-extension.js",
+  "activationEvents": [
+    "onView:nexalapBookmarks.bookmarksView",
+    "onCommand:nexalapBookmarks.addBookmark",
+    "onCommand:nexalapBookmarks.removeBookmark",
+    "onCommand:nexalapBookmarks.openBookmark",
+    "onCommand:nexalapBookmarks.clearBookmarks"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "nexalapBookmarks.addBookmark",
+        "title": "NexaLAP: Add Bookmark"
+      },
+      {
+        "command": "nexalapBookmarks.removeBookmark",
+        "title": "NexaLAP: Remove Bookmark"
+      },
+      {
+        "command": "nexalapBookmarks.openBookmark",
+        "title": "NexaLAP: Open Bookmark"
+      },
+      {
+        "command": "nexalapBookmarks.clearBookmarks",
+        "title": "NexaLAP: Clear Bookmarks"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "nexalapBookmarks",
+          "title": "NexaLAP",
+          "icon": "resources/nexalap.svg"
+        }
+      ]
+    },
+    "views": {
+      "nexalapBookmarks": [
+        {
+          "id": "nexalapBookmarks.bookmarksView",
+          "name": "Bookmarks"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -p . -w",
+    "package": "vsce package",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/vscode": "^1.90.0",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
+    "eslint": "^9.9.1",
+    "typescript": "^5.6.3",
+    "@vscode/vsce": "^3.2.1"
+  }
+}
